@@ -26,12 +26,17 @@ defmodule TaskManagerWeb.Endpoint do
     gzip: not code_reloading?,
     only: TaskManagerWeb.static_paths()
 
+  if Code.ensure_loaded?(Tidewave) do
+    plug Tidewave
+  end
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
+    plug AshPhoenix.Plug.CheckCodegenStatus
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :task_manager
   end
 

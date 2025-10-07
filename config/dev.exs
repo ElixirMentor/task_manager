@@ -1,4 +1,5 @@
 import Config
+config :ash, policies: [show_policy_breakdowns?: true]
 
 # Configure your database
 config :task_manager, TaskManager.Repo,
@@ -64,7 +65,7 @@ config :task_manager, TaskManagerWeb.Endpoint,
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :task_manager, dev_routes: true
+config :task_manager, dev_routes: true, token_signing_secret: "KXuyHNTYbDZ+NkL3YVSgpyQ0Imdrclzu"
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"
