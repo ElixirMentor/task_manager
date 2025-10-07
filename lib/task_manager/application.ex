@@ -15,7 +15,8 @@ defmodule TaskManager.Application do
       # Start a worker by calling: TaskManager.Worker.start_link(arg)
       # {TaskManager.Worker, arg},
       # Start to serve requests, typically the last entry
-      TaskManagerWeb.Endpoint
+      TaskManagerWeb.Endpoint,
+      {AshAuthentication.Supervisor, [otp_app: :task_manager]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
