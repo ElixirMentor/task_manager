@@ -51,7 +51,7 @@ config :spark,
 config :task_manager,
   ecto_repos: [TaskManager.Repo],
   generators: [timestamp_type: :utc_datetime],
-  ash_domains: [TaskManager.Accounts]
+  ash_domains: [TaskManager.Organizations, TaskManager.Accounts]
 
 # Configures the endpoint
 config :task_manager, TaskManagerWeb.Endpoint,
